@@ -45,7 +45,7 @@ const clear = document.querySelector("#clr");
 clear.addEventListener("click", () => {
     display.textContent = "";
 })
-
+/*
 const exponent = document.querySelector("#exponent");
 exponent.addEventListener("click", () => {
     display.textContent = "";
@@ -84,7 +84,10 @@ nine.addEventListener("click", () => {
         display.textContent += "9";
     }
 })
-*/
+
+
+
+
 const multiple = document.querySelector("#multiply");
 multiple.addEventListener("click", () => {
     if(var1 == undefined){
@@ -96,7 +99,7 @@ multiple.addEventListener("click", () => {
     display.textContent = "*";
 
 
-})
+})*/
 /*
 const four = document.querySelector("#four");
 four.addEventListener("click", () => {
@@ -124,17 +127,36 @@ six.addEventListener("click", () => {
         display.textContent += "6";
     }
 })
-*/
+
 const minus = document.querySelector("#subtract");
 minus.addEventListener("click", () => {
+    if(var1 == undefined){
+        var1 = display.textContent;
+    }
+    console.log(var1);
+
     display.textContent = "";
     display.textContent = "-";
+})
+*/
+const operatorButtons = document.querySelectorAll("#operator");
+operatorButtons.forEach(operator => {
+    operator.addEventListener("click", () => {
+        if(var1 == undefined){
+            var1 = display.textContent;
+        }
+        console.log(var1);
+    
+        display.textContent = "";
+        display.textContent = operator.textContent;
+    })
 })
 
 const numberButtons = document.querySelectorAll("#number");
 numberButtons.forEach(button =>{
     button.addEventListener("click", () =>{
-        if(display.textContent == "0"){
+        if(display.textContent == "0" || display.textContent == "+" || display.textContent == "-" || display.textContent == "÷" || display.textContent == "^" 
+            || display.textContent == "x"){
             display.textContent = button.textContent;
         }else{
             display.textContent += button.textContent;
@@ -167,14 +189,14 @@ three.addEventListener("click", () => {
     }else{
         display.textContent += "3";
     }
-})*/
+})
 
 const plus = document.querySelector("#addition");
 plus.addEventListener("click", () => {
     display.textContent = "";
     display.textContent = "+";
 })
-
+*/
 const sign = document.querySelector("#sign");
 sign.addEventListener("click", () => {
     display.textContent = "";
