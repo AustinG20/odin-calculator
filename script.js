@@ -57,72 +57,117 @@ division.addEventListener("click", () => {
     display.textContent = "";
     display.textContent = "÷";
 })
-
+/*
 const seven = document.querySelector("#seven");
 seven.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "7";
+    if(display.textContent == "0"){
+        display.textContent = "7";
+    }else{
+        display.textContent += "7";
+    }
 })
 
 const eight = document.querySelector("#eight");
 eight.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "8";
+    if(display.textContent == "0"){
+        display.textContent = "8";
+    }else{
+        display.textContent += "8";
+    }
 })
 
 const nine = document.querySelector("#nine");
 nine.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "9";
+    if(display.textContent == "0"){
+        display.textContent = "9";
+    }else{
+        display.textContent += "9";
+    }
 })
-
+*/
 const multiple = document.querySelector("#multiply");
 multiple.addEventListener("click", () => {
+    if(var1 == undefined){
+        var1 = display.textContent;
+    }
+    console.log(var1);
+
     display.textContent = "";
     display.textContent = "*";
-})
 
+
+})
+/*
 const four = document.querySelector("#four");
 four.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "4";
+    if(display.textContent == "0"){
+        display.textContent = "4";
+    }else{
+        display.textContent += "4";
+    }
 })
 
 const five = document.querySelector("#five");
 five.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "5";
+    if(display.textContent == "0"){
+        display.textContent = "5";
+    }else{
+        display.textContent += "5";
+    }
 })
 
 const six = document.querySelector("#six");
 six.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "6";
+    if(display.textContent == "0"){
+        display.textContent = "6";
+    }else{
+        display.textContent += "6";
+    }
 })
-
+*/
 const minus = document.querySelector("#subtract");
 minus.addEventListener("click", () => {
     display.textContent = "";
     display.textContent = "-";
 })
 
-const one = document.querySelector("#one");
+const numberButtons = document.querySelectorAll("#number");
+numberButtons.forEach(button =>{
+    button.addEventListener("click", () =>{
+        if(display.textContent == "0"){
+            display.textContent = button.textContent;
+        }else{
+            display.textContent += button.textContent;
+        }
+    })
+})
+
+/*const one = document.querySelector("#one");
 one.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "1";
+    if(display.textContent == "0"){
+        display.textContent = "1";
+    }else{
+        display.textContent += "1";
+    }
 })
 
 const two = document.querySelector("#two");
 two.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "2";
+    if(display.textContent == "0"){
+        display.textContent = "2";
+    }else{
+        display.textContent += "2";
+    }
 })
 
 const three = document.querySelector("#three");
 three.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "3";
-})
+    if(display.textContent == "0"){
+        display.textContent = "3";
+    }else{
+        display.textContent += "3";
+    }
+})*/
 
 const plus = document.querySelector("#addition");
 plus.addEventListener("click", () => {
@@ -135,13 +180,16 @@ sign.addEventListener("click", () => {
     display.textContent = "";
     display.textContent = "-";
 })
-
+/*
 const zero = document.querySelector("#zero");
 zero.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "0";
+    if(display.textContent == "0"){
+        display.textContent = "0";
+    }else{
+        display.textContent += "0";
+    }
 })
-
+*/
 const decimal = document.querySelector("#decimal");
 decimal.addEventListener("click", () => {
     display.textContent = "";
@@ -152,6 +200,8 @@ const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
     display.textContent = "";
 })
+
+
 
 
 
