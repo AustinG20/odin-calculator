@@ -27,9 +27,9 @@ const operate = function(num1, num2, operator){
         return add(num1, num2);
     }else if(operator == '-'){
         return subtract(num1, num2);
-    }else if(operator == '*'){
+    }else if(operator == 'x'){
         return multiply(num1, num2);
-    }else if(operator == '/'){
+    }else if(operator == '÷'){
         return divide(num1, num2);
     }else if(operator == '^'){
         return power(num1, num2);
@@ -40,178 +40,84 @@ const display = document.querySelector("#output");
 let var1;
 let var2;
 let operator;
+let clearDisp = true;
 
 const clear = document.querySelector("#clr");
 clear.addEventListener("click", () => {
     display.textContent = "";
 })
-/*
-const exponent = document.querySelector("#exponent");
-exponent.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "^";
-})
 
-const division = document.querySelector("#divide");
-division.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "÷";
-})
-/*
-const seven = document.querySelector("#seven");
-seven.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "7";
-    }else{
-        display.textContent += "7";
-    }
-})
-
-const eight = document.querySelector("#eight");
-eight.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "8";
-    }else{
-        display.textContent += "8";
-    }
-})
-
-const nine = document.querySelector("#nine");
-nine.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "9";
-    }else{
-        display.textContent += "9";
-    }
-})
-
-
-
-
-const multiple = document.querySelector("#multiply");
-multiple.addEventListener("click", () => {
-    if(var1 == undefined){
-        var1 = display.textContent;
-    }
-    console.log(var1);
-
-    display.textContent = "";
-    display.textContent = "*";
-
-
-})*/
-/*
-const four = document.querySelector("#four");
-four.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "4";
-    }else{
-        display.textContent += "4";
-    }
-})
-
-const five = document.querySelector("#five");
-five.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "5";
-    }else{
-        display.textContent += "5";
-    }
-})
-
-const six = document.querySelector("#six");
-six.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "6";
-    }else{
-        display.textContent += "6";
-    }
-})
-
-const minus = document.querySelector("#subtract");
-minus.addEventListener("click", () => {
-    if(var1 == undefined){
-        var1 = display.textContent;
-    }
-    console.log(var1);
-
-    display.textContent = "";
-    display.textContent = "-";
-})
-*/
 const operatorButtons = document.querySelectorAll("#operator");
-operatorButtons.forEach(operator => {
-    operator.addEventListener("click", () => {
-        if(var1 == undefined){
+operatorButtons.forEach(operatorButton => {
+    operatorButton.addEventListener("click", () => {
+
+        if(var1 == undefined && var2 == undefined){
             var1 = display.textContent;
+        }else if(var2 == undefined){
+            var2 = display.textContent;
         }
-        console.log(var1);
-    
-        display.textContent = "";
-        display.textContent = operator.textContent;
+
+        if(var1 != undefined && var2 != undefined && operator != undefined){
+            if(operator == "+"){
+                console.log(`add numbers ${var1} and ${var2}`);
+                var1 = operate(Number(var1), Number(var2), operator);
+                console.log(`equals to ${var1}`);
+                var2 = undefined;
+                operator = undefined;
+            }else if(operator == "-"){
+                console.log('subtract numbers');
+                var1 = operate(Number(var1), Number(var2), operator);
+                console.log(`equals to ${var1}`);
+                var2 = undefined;
+                operator = undefined;
+            }else if(operator == "÷"){
+                console.log('divide numbers');
+                var1 = operate(Number(var1), Number(var2), operator);
+                console.log(`equals to ${var1}`);
+                var2 = undefined;
+                operator = undefined;
+            }else if(operator == "^"){
+                console.log('exponent numbers');
+                var1 = operate(Number(var1), Number(var2), operator);
+                console.log(`equals to ${var1}`);
+                var2 = undefined;
+                operator = undefined;
+            }else if(operator == "x"){
+                console.log('multiply numbers');
+                var1 = operate(Number(var1), Number(var2), operator);
+                console.log(`equals to ${var1}`);
+                var2 = undefined;
+                operator = undefined;
+            }
+        }
+        
+        display.textContent = var1;
+        clearDisp = true;
+        //display.textContent = "";
+        //display.textContent = operatorButton.textContent;
+
+        operator = operatorButton.textContent;
     })
 })
 
 const numberButtons = document.querySelectorAll("#number");
 numberButtons.forEach(button =>{
     button.addEventListener("click", () =>{
-        if(display.textContent == "0" || display.textContent == "+" || display.textContent == "-" || display.textContent == "÷" || display.textContent == "^" 
-            || display.textContent == "x"){
+        if(display.textContent == "0" || clearDisp == true){
             display.textContent = button.textContent;
+            clearDisp = false;
         }else{
             display.textContent += button.textContent;
         }
     })
 })
 
-/*const one = document.querySelector("#one");
-one.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "1";
-    }else{
-        display.textContent += "1";
-    }
-})
-
-const two = document.querySelector("#two");
-two.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "2";
-    }else{
-        display.textContent += "2";
-    }
-})
-
-const three = document.querySelector("#three");
-three.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "3";
-    }else{
-        display.textContent += "3";
-    }
-})
-
-const plus = document.querySelector("#addition");
-plus.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "+";
-})
-*/
 const sign = document.querySelector("#sign");
 sign.addEventListener("click", () => {
     display.textContent = "";
     display.textContent = "-";
 })
-/*
-const zero = document.querySelector("#zero");
-zero.addEventListener("click", () => {
-    if(display.textContent == "0"){
-        display.textContent = "0";
-    }else{
-        display.textContent += "0";
-    }
-})
-*/
+
 const decimal = document.querySelector("#decimal");
 decimal.addEventListener("click", () => {
     display.textContent = "";
