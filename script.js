@@ -41,6 +41,7 @@ let var1;
 let var2;
 let operator;
 let clearDisp = true;
+let lastEqual = false;
 
 const clear = document.querySelector("#clr");
 clear.addEventListener("click", () => {
@@ -53,7 +54,7 @@ operatorButtons.forEach(operatorButton => {
 
         if(var1 == undefined && var2 == undefined){
             var1 = display.textContent;
-        }else if(var2 == undefined){
+        }else if(var2 == undefined && lastEqual == false){
             var2 = display.textContent;
         }
 
@@ -63,31 +64,26 @@ operatorButtons.forEach(operatorButton => {
                 var1 = operate(Number(var1), Number(var2), operator);
                 console.log(`equals to ${var1}`);
                 var2 = undefined;
-                operator = undefined;
             }else if(operator == "-"){
                 console.log('subtract numbers');
                 var1 = operate(Number(var1), Number(var2), operator);
                 console.log(`equals to ${var1}`);
                 var2 = undefined;
-                operator = undefined;
             }else if(operator == "÷"){
                 console.log('divide numbers');
                 var1 = operate(Number(var1), Number(var2), operator);
                 console.log(`equals to ${var1}`);
                 var2 = undefined;
-                operator = undefined;
             }else if(operator == "^"){
                 console.log('exponent numbers');
                 var1 = operate(Number(var1), Number(var2), operator);
                 console.log(`equals to ${var1}`);
                 var2 = undefined;
-                operator = undefined;
             }else if(operator == "x"){
                 console.log('multiply numbers');
                 var1 = operate(Number(var1), Number(var2), operator);
                 console.log(`equals to ${var1}`);
                 var2 = undefined;
-                operator = undefined;
             }
         }
         
@@ -114,19 +110,66 @@ numberButtons.forEach(button =>{
 
 const sign = document.querySelector("#sign");
 sign.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = "-";
+    
+    if(display.textContent.charAt(0) == "-"){
+        display.textContent = display.textContent.slice(1);
+    }else{
+        display.textContent = "-" + display.textContent;
+    }
 })
 
 const decimal = document.querySelector("#decimal");
 decimal.addEventListener("click", () => {
-    display.textContent = "";
-    display.textContent = ".";
+    if(display.textContent == ""){
+        display.textContent = "0.";
+    }else if(!display.textContent.includes(".")){
+        display.textContent += ".";
+    }
 })
 
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
-    display.textContent = "";
+    console.log(var1);
+    console.log(var2);
+    console.log(operator);
+    
+    if(var1 != undefined && var2 == undefined){
+        var2 = display.textContent;
+    }
+
+    if(var1 != undefined && var2 != undefined && operator != undefined){
+        if(operator == "+"){
+            console.log(`add numbers ${var1} and ${var2}`);
+            var1 = operate(Number(var1), Number(var2), operator);
+            console.log(`equals to ${var1}`);
+            var2 = undefined;
+        }else if(operator == "-"){
+            console.log(`subtract numbers ${var1} and ${var2}`);
+            var1 = operate(Number(var1), Number(var2), operator);
+            console.log(`equals to ${var1}`);
+            var2 = undefined;
+        }else if(operator == "÷"){
+            console.log(`divide numbers ${var1} and ${var2}`);
+            var1 = operate(Number(var1), Number(var2), operator);
+            console.log(`equals to ${var1}`);
+            var2 = undefined;
+        }else if(operator == "^"){
+            console.log(`exponent numbers ${var1} and ${var2}`);
+            var1 = operate(Number(var1), Number(var2), operator);
+            console.log(`equals to ${var1}`);
+            var2 = undefined;
+        }else if(operator == "x"){
+            console.log(`multiply numbers ${var1} and ${var2}`);
+            var1 = operate(Number(var1), Number(var2), operator);
+            console.log(`equals to ${var1}`);
+            var2 = undefined;
+        }
+    }
+    if(var1 != undefined){
+        display.textContent = var1;
+        operator = undefined;
+        lastEqual = true;
+    }
 })
 
 
