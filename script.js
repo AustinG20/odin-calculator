@@ -71,26 +71,62 @@ operatorButtons.forEach(operatorButton => {
                 if(operator == "+"){
                     console.log(`add numbers ${var1} and ${var2}`);
                     var1 = operate(Number(var1), Number(var2), operator);
+            
+                    if(String(var1).includes('.')){
+                        var1 = var1.toFixed(2);
+                    }
+                    
                     console.log(`equals to ${var1}`);
                     var2 = undefined;
                 }else if(operator == "-"){
                     console.log('subtract numbers');
                     var1 = operate(Number(var1), Number(var2), operator);
+            
+                    if(String(var1).includes('.')){
+                        var1 = var1.toFixed(2);
+                    }
+                    
                     console.log(`equals to ${var1}`);
                     var2 = undefined;
                 }else if(operator == "÷"){
                     console.log('divide numbers');
                     var1 = operate(Number(var1), Number(var2), operator);
-                    console.log(`equals to ${var1}`);
-                    var2 = undefined;
+
+                    if(var1 != 'Invalid denominator!'){
+                        console.log(`divide equals to ${var1}`);
+            
+                        if(String(var1).includes('.')){
+                            var1 = var1.toFixed(2);
+                        }
+                        
+                        var2 = undefined;
+                    }else{
+                        var1 = undefined;
+                        var2 = undefined;
+                        operator = undefined;
+
+                        clearDisp = true;
+                        lastEqual = false;
+                        lastOperator = false;
+                    }
                 }else if(operator == "^"){
                     console.log('exponent numbers');
                     var1 = operate(Number(var1), Number(var2), operator);
+            
+                    if(String(var1).includes('.')){
+                        var1 = var1.toFixed(2);
+                    }
+                    
                     console.log(`equals to ${var1}`);
                     var2 = undefined;
                 }else if(operator == "x"){
                     console.log('multiply numbers');
                     var1 = operate(Number(var1), Number(var2), operator);
+            
+                    if(String(var1).includes('.')){
+                        var1 = var1.toFixed(2);
+                    }
+                    
                     console.log(`equals to ${var1}`);
                     var2 = undefined;
                 }
@@ -100,9 +136,11 @@ operatorButtons.forEach(operatorButton => {
             clearDisp = true;
             lastEqual = false;
     }
-
+    
+    if(display.textContent != 'Invalid denominator!'){
         operator = operatorButton.textContent;
         lastOperator = true;
+    }
     })
 })
 
@@ -110,7 +148,7 @@ const numberButtons = document.querySelectorAll("#number");
 numberButtons.forEach(button =>{
     button.addEventListener("click", () =>{
         lastOperator = false;
-        if(display.textContent == "0" || clearDisp == true){
+        if(display.textContent == "0" || clearDisp == true || display.textContent == 'Invalid denominator!'){
             display.textContent = button.textContent;
             clearDisp = false;
         }else{
@@ -156,26 +194,61 @@ equal.addEventListener("click", () => {
         if(operator == "+"){
             console.log(`add numbers ${var1} and ${var2}`);
             var1 = operate(Number(var1), Number(var2), operator);
+            
+            if(String(var1).includes('.')){
+                var1 = var1.toFixed(2);
+            }
+            
             console.log(`equals to ${var1}`);
             var2 = undefined;
         }else if(operator == "-"){
             console.log(`subtract numbers ${var1} and ${var2}`);
             var1 = operate(Number(var1), Number(var2), operator);
+            
+            if(String(var1).includes('.')){
+                var1 = var1.toFixed(2);
+            }
+            
             console.log(`equals to ${var1}`);
             var2 = undefined;
         }else if(operator == "÷"){
             console.log(`divide numbers ${var1} and ${var2}`);
             var1 = operate(Number(var1), Number(var2), operator);
-            console.log(`equals to ${var1}`);
-            var2 = undefined;
+            if(var1 != 'Invalid denominator!'){
+                console.log(`divide equals to ${var1}`);
+            
+                if(String(var1).includes('.')){
+                    var1 = var1.toFixed(2);
+                }
+                
+                var2 = undefined;
+            }else{
+                var1 = undefined;
+                var2 = undefined;
+                operator = undefined;
+
+                clearDisp = true;
+                lastEqual = false;
+                lastOperator = false;
+            }
         }else if(operator == "^"){
             console.log(`exponent numbers ${var1} and ${var2}`);
             var1 = operate(Number(var1), Number(var2), operator);
+            
+            if(String(var1).includes('.')){
+                var1 = var1.toFixed(2);
+            }
+            
             console.log(`equals to ${var1}`);
             var2 = undefined;
         }else if(operator == "x"){
             console.log(`multiply numbers ${var1} and ${var2}`);
             var1 = operate(Number(var1), Number(var2), operator);
+            
+            if(String(var1).includes('.')){
+                var1 = var1.toFixed(2);
+            }
+            
             console.log(`equals to ${var1}`);
             var2 = undefined;
         }
