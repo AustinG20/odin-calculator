@@ -127,6 +127,10 @@ sign.addEventListener("click", () => {
     }else{
         display.textContent = "-" + display.textContent;
     }
+
+    if(lastOperator == true || lastEqual == true){
+        var1 = display.textContent
+    }
 })
 
 const decimal = document.querySelector("#decimal");
