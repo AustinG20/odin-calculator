@@ -200,7 +200,7 @@ equal.addEventListener("click", () => {
     console.log(var2);
     console.log(operator);
     
-    if(var1 != undefined && var2 == undefined){
+    if(var1 != undefined && var2 == undefined && lastOperator == false){
         var2 = display.textContent;
     }
 
@@ -269,8 +269,10 @@ equal.addEventListener("click", () => {
     }
     if(var1 != undefined){
         display.textContent = var1;
-        operator = undefined;
-        lastEqual = true;
+        if(lastOperator != true){
+            operator = undefined;
+            lastEqual = true;
+        }
     }
 })
 
