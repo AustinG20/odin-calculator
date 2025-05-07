@@ -57,7 +57,7 @@ clear.addEventListener("click", () => {
     lastOperator = false;
 })
 
-const operatorButtons = document.querySelectorAll("#operator");
+const operatorButtons = document.querySelectorAll(".operator");
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener("click", () => {
         if(lastOperator == false){
@@ -144,13 +144,18 @@ operatorButtons.forEach(operatorButton => {
     })
 })
 
-const numberButtons = document.querySelectorAll("#number");
+const numberButtons = document.querySelectorAll(".number");
 numberButtons.forEach(button =>{
     button.addEventListener("click", () =>{
         lastOperator = false;
-        if(display.textContent == "0" || clearDisp == true || display.textContent == 'Invalid denominator!'){
+        if(display.textContent == "0" || clearDisp == true || display.textContent == 'Invalid denominator!' || lastEqual == true){
             display.textContent = button.textContent;
             clearDisp = false;
+            if(lastEqual == true){
+                var1 = undefined;
+                operator = undefined;
+                lastEqual = false;
+            }
         }else{
             display.textContent += button.textContent;
         }

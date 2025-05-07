@@ -1,13 +1,69 @@
-.container{
+.background{
     height: 100vh;
     aspect-ratio: 2/1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.container{
+    height: 30vh;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(88, 85, 85);
+    padding-bottom: 15vh;
+    padding-top: 1vh;
+    border-radius: 15px;
+    }
+
 .display{
-    padding-left: 80px;
+    border-radius: 8px;
+    height: 10vh;
+    width: 27vh;
+    font-size: 7vh;
+    text-align: right;
+    background-color: rgb(170, 165, 165);
+}
+
+#output{
+    overflow: hidden;
+}
+
+#clr, #sign{
+    border-radius: 8px;
+    height: 7vh;
+    aspect-ratio: 1/1;
+    font-size: 4vh;
+    background-color: rgb(59, 201, 201);
+}
+
+.number, #decimal{
+    border-radius: 8px;
+    height: 7vh;
+    aspect-ratio: 1/1;
+    font-size: 6vh;
     background-color: aquamarine;
+}
+
+.operator, #equal{
+    border-radius: 8px;
+    height: 7vh;
+    aspect-ratio: 1/1;
+    font-size: 6vh;
+    background-color: orangered;
+}
+
+#zero{
+    border-radius: 8px;
+    height: 7vh;
+    aspect-ratio: 2/1;
+    font-size: 6vh;
+    background-color: aquamarine;
+}
+
+.rowOne, .rowTwo, .rowThree, .rowFour, .rowFive{
+    display: flex;
+    align-items: center;
 }
