@@ -57,6 +57,15 @@ clear.addEventListener("click", () => {
     lastOperator = false;
 })
 
+const back = document.querySelector("#back");
+back.addEventListener("click", () => {
+    display.textContent = display.textContent.slice(0,-1);
+
+    if(display.textContent == ""){
+        display.textContent = 0;
+    }
+});
+
 const operatorButtons = document.querySelectorAll(".operator");
 operatorButtons.forEach(operatorButton => {
     operatorButton.addEventListener("click", () => {
